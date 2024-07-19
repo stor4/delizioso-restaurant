@@ -1,0 +1,16 @@
+:root {
+    --font-family: "Poppins", sans-serif;
+    --second-family: "Tinos", sans-serif;
+    --third-family: "Raleway", sans-serif;
+    --content-width: 1440px;
+    --container-offset: 15px;
+    --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+
+    --primary: #FF8A00;
+    --green: #3fa72f;
+    --grey: #d0ccc7;
+
+    --white: #ffffff;
+    --black: #000000;
+    --text: #311f09;
+}

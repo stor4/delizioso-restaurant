@@ -1,0 +1,85 @@
+.homeSchedule {
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 238px;
+
+    }
+
+    &__bg {
+        background-image: url(../../../src/assets/schedule.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 26px 277px 80px;
+
+    }
+
+    &__title {
+        font-family: var(--second-family);
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 200%;
+        color: var(--white);
+    }
+
+    &__days {
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 200%;
+        text-align: center;
+        color: var(--white);
+    }
+
+    &__time {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 200%;
+        text-align: center;
+        color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        margin-top: 5px;
+    }
+
+    &__btns {
+        margin-top: 44px;
+        display: flex;
+        gap: 23px;
+        
+    }
+
+    &__order {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 200%;
+        padding: 17px 62px;
+    }
+
+    &__reservation {
+        padding: 17px 55px;
+        color: var(--black);
+        background: var(--white);
+        border-color: var(--white);
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 200%;
+
+        &:hover {
+            color: var(--white);
+        }
+    }
+}
+
+@include big-tablet {
+    .homeSchedule {
+        &__btns {
+            flex-direction: column-reverse;
+        }
+    }
+}

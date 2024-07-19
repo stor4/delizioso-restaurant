@@ -1,0 +1,85 @@
+.homeReservation {
+    position: relative;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        // gap: 136px;
+        padding: 182px 0 144px;
+        position: relative;
+        z-index: 2;
+    }
+
+    img {
+        max-width: 771px;
+        max-height: 771px;
+        height: 100%;
+        width: 100%;
+        aspect-ratio: 1/1;
+        user-select: none;
+        position: relative;
+
+        &::after {
+            content: '';
+            background-image: url(../../assets/home_reservation2.png);
+            position: absolute;
+            top: 0;
+            max-height: 181px;
+            max-width: 181px;
+        }
+    }
+
+    &__bg {
+        background: #fff4e7;
+        opacity: 0.4;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__info {
+        margin-top: 90px;
+        padding-left: 46px;
+    }
+
+    &__title {
+        font-family: var(--second-family);
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 110%;
+        color: #311f09;
+        text-wrap: nowrap;
+
+        span {
+            color: var(--primary);
+        }
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 200%;
+        color: #5c4529;
+        margin-top: 50px;
+    }
+
+    &__btn {
+        font-weight: 600;
+        padding: 17px 45px;
+        font-size: 20px;
+        line-height: 200%;
+        color: #fff;
+        margin-top: 171px;
+    }
+}
+
+@include big-tablet {
+    .homeReservation {
+        &__container {
+            flex-direction: column-reverse;
+            padding: 74px 25px;
+            gap: 35px;
+            align-items: center;
+        }
+    }
+}

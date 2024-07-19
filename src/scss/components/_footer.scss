@@ -1,0 +1,121 @@
+.footer {
+    background: var(--text);
+    color: #e3e2e0;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+
+    }
+
+    &__top {
+        display: grid;
+        grid-template-columns: 352px repeat(3, 1fr);
+        gap: 70px;
+        width: 100%;
+        padding: 149px 0 18px;
+        max-width: 1112px;
+
+    }
+
+    &__logo {
+        margin-bottom: 45px;
+
+    }
+
+    &__col {
+        &-title {
+            font-family: var(--font-family);
+            font-weight: 600;
+            font-size: 25px;
+            line-height: 200%;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        &:nth-child(3) {
+            margin-right: 70px;
+        }
+
+        div {
+            display: flex;
+            gap: 30px;
+            margin-top: 39px;
+
+            a {
+               background: #ddd5d5; 
+               height: 60px;
+               width: 60px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               border-radius: 100%;
+            }
+        }
+
+        address {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 153%;
+            color: #e3e2e0;
+        }
+
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-wrap: nowrap;
+        }
+
+        a {
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 200%;
+            color: var(--white);
+        }
+    }
+
+    &__text {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 200%;
+        color: #e3e2e0;
+        margin-top: 30px;
+    }
+
+    &__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 74px 0;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 200%;
+        color: #e3e2e0;
+    }
+}
+
+@include big-tablet {
+    .footer {
+        &__container {
+            padding: 92px 25px 0;
+        }
+
+        &__top {
+            display: flex;
+            flex-direction: column;
+            padding-top: 0;
+        }
+
+        &__bottom {
+            align-items: start;
+            justify-content: start;
+            width: 100%;
+        }
+    }
+}
