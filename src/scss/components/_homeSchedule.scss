@@ -22,14 +22,15 @@
     &__title {
         font-family: var(--second-family);
         font-weight: 700;
-        font-size: 80px;
-        line-height: 200%;
+        font-size: clamp(4px, 11vw, 80px);
+        line-height: clmp(115%, 4vw, 200%);
         color: var(--white);
+        text-align: center;
     }
 
     &__days {
         font-weight: 600;
-        font-size: 40px;
+        font-size: clamp(16px, 4vw, 40px);
         line-height: 200%;
         text-align: center;
         color: var(--white);
@@ -37,8 +38,8 @@
 
     &__time {
         font-weight: 400;
-        font-size: 20px;
-        line-height: 200%;
+        font-size: clamp(12px, 3vw, 20px);
+        line-height: clamp(160%, 4vw, 200%);
         text-align: center;
         color: var(--white);
         display: flex;
@@ -51,12 +52,11 @@
         margin-top: 44px;
         display: flex;
         gap: 23px;
-        
     }
 
     &__order {
         font-weight: 600;
-        font-size: 20px;
+        font-size: clamp(14px, 3vw, 20px);
         line-height: 200%;
         padding: 17px 62px;
     }
@@ -67,7 +67,7 @@
         background: var(--white);
         border-color: var(--white);
         font-weight: 600;
-        font-size: 20px;
+        font-size: clamp(14px, 3vw, 20px);
         line-height: 200%;
 
         &:hover {
@@ -78,8 +78,33 @@
 
 @include big-tablet {
     .homeSchedule {
+        &__container {
+            padding-bottom: 196px;
+            
+        }
+        &__bg {
+            padding: 26px 27px 36px;
+        }
+
+        &__days {
+            margin-top: 27px;
+        }
+
         &__btns {
             flex-direction: column-reverse;
+            margin-top: 23px;
+            gap: 15px;
+        }
+
+        &__order {
+            padding: 10px 41px;
+            height: auto;
+            max-height: none;
+
+        }
+
+        &__reservation {
+            padding: 10px 41px;
         }
     }
 }

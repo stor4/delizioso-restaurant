@@ -77,7 +77,7 @@
     .homeReservation {
         &__container {
             flex-direction: column-reverse;
-            padding: 60px 25px;
+            padding: 60px 25px 60px;
             gap: 35px;
             align-items: center;
         }
@@ -89,10 +89,15 @@
 
         &__info {
             padding: 0;
+            margin-top: 0;
         }
 
         &__text {
             margin-top: 32px;
+        }
+
+        &__btn {
+            margin-top: 40px;
         }
 
         img {

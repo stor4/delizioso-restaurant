@@ -11,6 +11,7 @@
             font-size: clamp(35px, 5vw, 80px);
             line-height: clamp(115%, 4vw, 200%);
             color: var(--text);
+            text-align: center;
         }
     }
 
@@ -169,7 +170,7 @@
 @include mobile {
     .homeMenu {
         &__container {
-            padding: 62px 25px 62px;
+            padding: 94px 25px 62px;
         }
 
         &__grid {
