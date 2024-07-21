@@ -45,8 +45,8 @@
     &__title {
         font-family: var(--second-family);
         font-weight: 700;
-        font-size: 80px;
-        line-height: 110%;
+        font-size: clamp(35px, 9vw, 80px);
+        line-height: clamp(115%, 4vw, 110%);
         color: #311f09;
         text-wrap: nowrap;
 
@@ -57,7 +57,7 @@
 
     &__text {
         font-weight: 400;
-        font-size: 20px;
+        font-size: clamp(12px, 3vw, 20px);
         line-height: 200%;
         color: #5c4529;
         margin-top: 50px;
@@ -66,7 +66,7 @@
     &__btn {
         font-weight: 600;
         padding: 17px 45px;
-        font-size: 20px;
+        font-size: clamp(14px, 3vw, 20px);
         line-height: 200%;
         color: #fff;
         margin-top: 171px;
@@ -77,9 +77,27 @@
     .homeReservation {
         &__container {
             flex-direction: column-reverse;
-            padding: 74px 25px;
+            padding: 60px 25px;
             gap: 35px;
             align-items: center;
+        }
+
+        &__btn {
+            padding: 13px 41px;
+            margin-top: 40px;
+        }
+
+        &__info {
+            padding: 0;
+        }
+
+        &__text {
+            margin-top: 32px;
+        }
+
+        img {
+            max-width: 418px;
+            max-height: 436px;
         }
     }
 }

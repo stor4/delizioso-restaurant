@@ -8,10 +8,10 @@ function HomeWelcome() {
             <img src={welcome} alt="hero" />
             <div className="homeWelcome__info">
                 <p className="homeWelcome__title">
-                    Welcome to <span>deliziose</span>
+                    Welcome to<br/> <span>deliziose</span>
                 </p>
                 <p className="homeWelcome__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis ultricies at eleifend proin. Congue nibh nulla malesuada ultricies nec quam 
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis ultricies at eleifend proin. Congue nibh nulla malesuada ultricies nec<br/> quam 
                 </p>
                 <button className="d-btn-secondary homeWelcome__btn">See our menu</button>
             </div>

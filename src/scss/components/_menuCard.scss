@@ -1,16 +1,14 @@
 .menuCard {
-    // background: var(--grey);
-    border-radius: 70px;
+    border-radius: clamp(18px, 5vw, 70px);
     display: flex;
     flex-direction: column;
     align-items: center;
     // padding: 35px 28px;
     position: relative;
     overflow: hidden;
-
     max-width: 344px;
 
-    &::before {
+    &__bg {
         content: '';
         position: absolute;
         width: 100%;
@@ -19,10 +17,19 @@
         opacity: 0.1;
     }
 
+    &__container {
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     &__img {
         margin-top: 35px;
         max-width: 270px;
         max-height: 270px;
+        max-width: clamp(114px, 4vw, 270px);
+        max-height: clamp(114px, 4vw, 270px);
         aspect-ratio: 1/1;
         box-shadow: 0 13px 33px 0 rgba(87, 103, 118, 0.2);
     }
@@ -30,7 +37,7 @@
     &__title {
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 30px;
+        font-size: clamp(14px, 4vw, 30px);
         line-height: 200%;
         color: var(--text);
         margin-top: 25px;
@@ -39,18 +46,21 @@
     &__rate {
         display: flex;
         gap: 10px;
-
     }
 
     &__text {
         font-family: var(--font-family);
         font-weight: 400;
-        font-size: 14px;
-        line-height: 200%;
+        font-size: clamp(12px, 4vw, 14px);
+        line-height: clamp(120%, 4vw, 200%);
         text-align: center;
         color: #59442b;
         margin-top: 26px;
-
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__bottom {
@@ -65,7 +75,7 @@
     &__price {
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 25px;
+        font-size: clamp(16px, 4vw, 25px);
         color: var(--text);
     }
 
@@ -77,6 +87,37 @@
 
         &-mob {
             display: none;
+        }
+    }
+}
+
+@include big-tablet {
+    .menuCard {
+        &__container {
+            padding: 0 15px;
+        }
+
+        &__btn {
+            display: none;
+
+            &-mob {
+                display: block;
+                background: transparent;
+                border: none;
+
+                img {
+                    height: 33px;
+                    width: 33px;
+                }
+            }
+        }
+
+        &__price {
+            color: var(--primary)
+        }
+
+        &__text {
+            -webkit-line-clamp: 2;
         }
     }
 }

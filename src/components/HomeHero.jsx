@@ -10,7 +10,7 @@ function HomeHero() {
                 <br />
                 Cuisine
               </h1>
-              <p className='homeHero__desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aut sint assumenda dignissimos qui et.</p>
+              <p className='homeHero__desc'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam aut sint assumenda dignissimos<br/> qui et.</p>
               <div className="homeHero__btns">
                  <button className='d-btn-secondary homeHero__order'>Order now</button>
                  <button className='d-btn-primary homeHero__reservation'>Reservation</button>

@@ -4,11 +4,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+
         h3 {
             font-family: var(--second-family);
             font-weight: 700;
-            font-size: 80px;
-            line-height: 200%;
+            font-size: clamp(35px, 5vw, 80px);
+            line-height: clamp(115%, 4vw, 200%);
             color: var(--text);
         }
     }
@@ -65,7 +66,7 @@
         gap: 27.5px;
         height: 75px;
         margin-top: 61px;
-
+        overflow-x: auto;
     }
 
     &__grid {
@@ -73,7 +74,6 @@
         grid-template-columns: repeat(3, 1fr);
         gap: 40px;
         padding-top: 60px;
-
     }
 
     &__pagination {
@@ -146,5 +146,52 @@
             }
         }
 
+    }
+}
+
+@include big-tablet {
+    .homeMenu {
+        &__container {
+            padding: 62px 25px 62px;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+            place-items: center;
+        }
+
+        &__cats {
+            display: none;
+        }
+    }
+}
+
+@include mobile {
+    .homeMenu {
+        &__container {
+            padding: 62px 25px 62px;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            place-items: center;
+        }
+
+        &__cats {
+            display: none;
+        }
+
+        &__pagination {
+            ul {
+                li {
+                    display: none;
+
+                    &:nth-child(1) {
+                        display: flex;
+                    }
+                }
+            }
+        }
     }
 }

@@ -14,9 +14,9 @@ function HomePage() {
         <HomeWelcome/>
         <HomeMenu/>
         <HomeReservation/>
-        <HomeChef/>
+        {/* <HomeChef/> */}
         <EmptySection/>
-        <HomeSchedule/>
+        {/* <HomeSchedule/> */}
     </main>
   )
 }
