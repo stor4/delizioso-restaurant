@@ -6,8 +6,12 @@ function AboutPage() {
   return (
     <div className="aboutPage">
         <div className="container aboutPage__container">
+            <p className="aboutPage__mob-title">
+                <span>Our</span> restaurant
+            </p>
             <div className="aboutPage__top">
                 <div className="aboutPage__top-img">
+                    <span></span>
                     <img src={img1} alt="about-img" />
                 </div>
                 <div className="">
@@ -24,6 +28,7 @@ function AboutPage() {
             </div>
             <div className="aboutPage__middle">
             <div className="aboutPage__middle-img">
+                    <span></span>
                     <img src={img2} alt="about-img" />
                 </div>
                 <p className="aboutPage__text">
