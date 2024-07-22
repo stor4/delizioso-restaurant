@@ -15,13 +15,13 @@ function Header() {
             <nav className="header__nav">
                 <ul>
                     <li>
-                        <a className='header__link' href="#">Home</a>
+                        <a className='header__link' href="/">Home</a>
                     </li>
                     <li>
                         <a className='header__link' href="#">Menu</a>
                     </li>
                     <li>
-                        <a className='header__link' href="#">About us</a>
+                        <a className='header__link' href="/about">About us</a>
                     </li>
                     <li>
                         <a className='header__link' href="#">Order online</a>

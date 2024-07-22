@@ -92,7 +92,7 @@
             padding: 11px 0 56px 10px;
             flex-direction: column;
             gap: 40px;
-            align-items: center;
+            // align-items: center;
         }
 
         &__sub {
@@ -121,7 +121,7 @@
         }
 
         &__order {
-            height: 44px;
+            // height: 44px;
             // padding: 0;
         }
 
@@ -130,8 +130,8 @@
         }
 
         img {
-            max-width: 368px;
-            max-height: 315px;
+            // max-width: 368px;
+            // max-height: 315px;
             width: 100%;
         }
     }
