@@ -1,10 +1,14 @@
 import img1 from "../assets/about-page-1.svg"
 import img2 from "../assets/about-page-2.svg"
 import img3 from "../assets/about-page-3.png"
+import Header from "../components/Header"
+import Footer from "../components/Footer"
 
 function AboutPage() {
   return (
-    <div className="aboutPage">
+    <>
+    <Header/>
+        <main className="aboutPage">
         <div className="container aboutPage__container">
             <p className="aboutPage__mob-title">
                 <span>Our</span> restaurant
@@ -51,7 +55,9 @@ function AboutPage() {
 
             </div>
         </div>
-    </div>
+    </main>
+    <Footer/>
+    </>
   )
 }
 

@@ -7,6 +7,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import SignupPage from './pages/SignupPage'
+import LoginPage from './pages/LoginPage'
 
 function App() {
   const router = createBrowserRouter([
@@ -17,14 +19,23 @@ function App() {
     {
       path: "/about",
       element: <AboutPage/>
-    }
+    },
+    {
+      path: "/signup",
+      element: <SignupPage/>
+    },
+    {
+      path: "/login",
+      element: <LoginPage/>
+    },
+
   ])
 
   return (
     <div className='page'>
-      <Header/>
+      {/* <Header/> */}
         <RouterProvider router={router}/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

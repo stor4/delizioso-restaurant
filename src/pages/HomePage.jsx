@@ -6,10 +6,14 @@ import HomeReservation from '../components/HomeReservation'
 import HomeChef from '../components/HomeChef'
 import EmptySection from '../components/EmptySection'
 import HomeSchedule from '../components/HomeSchedule'
+import Header from '../components/Header'
+import Footer from "../components/Footer"
 
 function HomePage() {
   return (
-    <main>
+    <>
+    <Header/>
+      <main>
         <HomeHero/>
         <HomeWelcome/>
         <HomeMenu/>
@@ -17,7 +21,9 @@ function HomePage() {
         <HomeChef/>
         {/* <EmptySection/> */}
         <HomeSchedule/>
-    </main>
+      </main>
+      <Footer/>
+    </>
   )
 }
 
