@@ -1,0 +1,60 @@
+.reservation {
+    &__container {
+        display: flex;
+    }
+
+    &__img {
+
+    }
+
+    &__form {
+
+        h3 {
+            font-family: var(--second-family);
+            font-weight: 700;
+            font-size: clamp(30px, 7vw, 80px);
+            line-height: 110%;
+            color: var(--text);
+        }
+
+    }
+
+    &_dropdowns {
+
+    }
+
+    &__dropdown {
+        font-weight: 400;
+        font-size: clamp(12px, 3vw, 20px);
+        line-height: 110%;
+        color: #a0978c;
+
+        &-btn {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            padding: 39px 50px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+
+
+            &::before {
+                content: '';
+                position: absolute;
+                background: #d0ccc7;
+                background: black;
+                opacity: 0.1;
+                height: 100%;
+                width: 100%;
+                right: 0;
+                top: 0;
+            }
+
+        }
+
+        &_list {
+
+        }
+    }
+}

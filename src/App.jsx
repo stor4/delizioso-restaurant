@@ -11,6 +11,7 @@ import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import ContactPage from './pages/ContactPage'
 import MenuPage from './pages/MenuPage'
+import ReservationPage from './pages/ReservationPage'
 
 function App() {
   const router = createBrowserRouter([
@@ -37,6 +38,10 @@ function App() {
     {
       path: "/menu",
       element: <MenuPage/>
+    },
+    {
+      path: "/reservation",
+      element: <ReservationPage/>
     },
 
   ])
