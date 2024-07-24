@@ -18,19 +18,19 @@ function Header() {
                         <a className='header__link' href="/">Home</a>
                     </li>
                     <li>
-                        <a className='header__link' href="#">Menu</a>
+                        <a className='header__link' href="/menu">Menu</a>
                     </li>
                     <li>
                         <a className='header__link' href="/about">About us</a>
                     </li>
                     <li>
-                        <a className='header__link' href="#">Order online</a>
+                        <a className='header__link' href="/order">Order online</a>
                     </li>
                     <li>
-                        <a className='header__link' href="#">Reservation</a>
+                        <a className='header__link' href="/reservation">Reservation</a>
                     </li>
                     <li>
-                        <a className='header__link' href="#">Contact us</a>
+                        <a className='header__link' href="/contact">Contact us</a>
                     </li>
                 </ul>
             </nav>
