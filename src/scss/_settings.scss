@@ -198,14 +198,26 @@ a {
 
 .d-input {
   border-radius: 10px;
-  // width: 414px;
-  // height: 59px;
+  font-family: var(--font-family);
   padding: 19px 30px;
   font-weight: 400;
   font-size: 14px;
   color: var(--text);
   background: #fbfafa;
   border: none;
+}
+
+.d-textarea {
+  border-radius: 10px;
+  padding: 19px 30px;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--text);
+  background: #fbfafa;
+  border: none;
+  resize: none;
+  width: 100%;
+  font-family: var(--font-family);
 }
 
 
