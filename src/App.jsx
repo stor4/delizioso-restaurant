@@ -10,6 +10,7 @@ import {
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import ContactPage from './pages/ContactPage'
+import MenuPage from './pages/MenuPage'
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ function App() {
     {
       path: "/contact",
       element: <ContactPage/>
+    },
+    {
+      path: "/menu",
+      element: <MenuPage/>
     },
 
   ])

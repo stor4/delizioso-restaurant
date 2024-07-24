@@ -1,0 +1,36 @@
+.menu {
+    &__container {
+        padding: 90px 0 218px;
+
+        h1 {
+            font-family: var(--second-family);
+            font-weight: 700;
+            font-size: clamp(35px, 6vw, 80px);
+            line-height: clamp(115%, 6vw, 200%);
+            color: var(--text);
+            text-align: center;
+        }
+
+    }
+
+    .homeMenu {
+        h3 {
+            display: none;
+        }
+
+        &__container {
+            padding: 0;
+        }
+
+        &__cats {
+            margin-top: 95px;
+        }
+    }
+
+    .menuCard {
+        &__img {
+            max-width: clamp(114px, 19vw, 270px);
+            max-height: clamp(114px, 19vw, 270px);
+        }
+    }
+}
