@@ -8,11 +8,12 @@ function ReservationPage() {
     <Header/>
     <main className='reservation'>
         <div className="reservation__container">
+            <h3 className='reservation__title-mob'>Book a table</h3>
             <div className="reservation__img">
                 <img src={img} alt="image" />
             </div>
             <div className="reservation__form">
-                <h3>Book a table</h3>
+                <h3 className='reservation__title'>Book a table</h3>
                 <div className='reservation__dropdowns'>
                     <div className="reservation__dropdown">
                         <div className="reservation__dropdown-btn">Date</div>

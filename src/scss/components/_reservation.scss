@@ -4,18 +4,27 @@
 
     &__container {
         display: flex;
-        padding: 140px 0;
-        // align-items: center;
-        // justify-content: center;
-        // gap: 86px;
+        padding: 133px 0;
+
+        h3 {
+            font-family: var(--second-family);
+            font-weight: 700;
+            font-size: clamp(30px, 7vw, 80px);
+            line-height: 110%;
+            color: var(--text);
+        }
+    }
+
+    &__title-mob {
+        display: none;
+        text-align: center;
     }
 
     &__img {
-        background: #d0ccc7;
-        position: relative;
-       
+        position: relative;       
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
+        left: -170px;
         // margin-right: 10px; 
 
         &::before {
@@ -27,6 +36,8 @@
             width: 100%;
             right: 0;
             top: 0;
+            border-top-right-radius: 50%;
+            border-bottom-right-radius: 50%;
         }
 
         &::after {
@@ -43,24 +54,24 @@
 
         img {
             z-index: 2;
-            margin: 69px 69px 69px 0;
+            margin: clamp(26px, 36vw, 69px) clamp(26px, 36vw, 69px) clamp(26px, 36vw, 69px) 0;
+            height: clamp(203px, 36vw, 526px);
+            width: clamp(203px, 36vw, 526px);
         }
-
-
-
-
     }
 
     &__form {
+        padding-top: 5px;
 
-        h3 {
-            font-family: var(--second-family);
-            font-weight: 700;
-            font-size: clamp(30px, 7vw, 80px);
+        button {
+            font-weight: 600;
+            font-size: clamp(16px, 4vw, 25px);
             line-height: 110%;
-            color: var(--text);
+            width: 100%;
+            padding: 36px;
+            border-radius: 20px;
+            margin-top: 40px;
         }
-
     }
 
     &__dropdowns {
@@ -91,7 +102,6 @@
                 content: '';
                 position: absolute;
                 background: #d0ccc7;
-                background: black;
                 opacity: 0.1;
                 height: 100%;
                 width: 100%;
@@ -114,8 +124,36 @@
 
         }
 
-        &_list {
+        &-list {
+            display: none;
+        }
+    }
+}
 
+@include big-tablet {
+    .reservation {
+        &__container {
+            flex-direction: column;
+            padding: 12px 0;
+            width: 100%;
+        }
+
+        &__title {
+            display: none;
+
+            &-mob {
+                display: block;
+            }
+        }
+
+        &__form {
+            padding: 26px;
+        }
+
+        &__img {
+            left: -40px;
+            margin-top: 60px;
+            display: none;
         }
     }
 }
