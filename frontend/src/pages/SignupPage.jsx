@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import home from "../assets/d.svg"
 import bg1 from "../assets/login-bg1.png"
 import bg2 from "../assets/login-bg2.png"
+import { useDispatch } from 'react-redux'
+import actionFullSignUp from '../actions/actionFullSignUp'
 
 function SignupPage() {
-  return (
+    const dispatch = useDispatch()
+    const [userName, setUserName] = useState('')
+    const [psw, setPsw] = useState('')
+    const [email, setEmail] = useState('') 
+
+    const submit = async() => {
+        const response = await dispatch(actionFullSignUp(userName, psw, email))
+        console.log(response)
+    }
+
+    return (
     <div className='signUp'>
         <div className="container signUp__container">
             <div className="signUp__form">
@@ -17,15 +29,15 @@ function SignupPage() {
                 </p>
                 <div className="signUp__input-container">
                     <label htmlFor="username">Full name</label>
-                    <input className='d-input' type="text" id="username" />
+                    <input value={userName} onChange={e => setUserName(e.target.value)} className='d-input' type="text" id="username" />
                 </div>
                 <div className="signUp__input-container">
                     <label htmlFor="email">Email address</label>
-                    <input className='d-input' type="email" id="email" />
+                    <input value={email} onChange={e => setEmail(e.target.value)} className='d-input' type="email" id="email" />
                 </div>
                 <div className="signUp__input-container">
                     <label htmlFor="password">Password</label>
-                    <input className='d-input' type="password" id="password" />
+                    <input value={psw} onChange={e => setPsw(e.target.value)} className='d-input' type="password" id="password" />
                 </div>
                 <div className="signUp__input-checkbox">
                 <label className="control control-checkbox">
@@ -38,7 +50,7 @@ function SignupPage() {
                     <input type="checkbox" id="terms" /> */}
                     <a href="#" className="signUp__recover">Forget Password?</a>
                 </div>
-                <button className="d-btn-secondary signUp__btn">Sign up</button>
+                <button onClick={submit} className="d-btn-secondary signUp__btn">Sign up</button>
                 <p className="signUp__copyright">Copyright © 2022 Delizioso</p>
             </div>
             <div className="signUp__img">
