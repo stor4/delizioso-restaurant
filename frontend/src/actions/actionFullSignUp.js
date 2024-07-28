@@ -30,7 +30,7 @@ const actionFullSignUp = (username, password, email) => async (dispatch) => {
     // Если токен возвращен, выполняем логин
     if (result?.token) {
       // Передача правильных данных в actionFullLogin
-      await dispatch(actionFullLogin( username, password ));
+      // await dispatch(actionFullLogin( username, password ));
       console.log('State after signup:', store.getState());
     }
 
