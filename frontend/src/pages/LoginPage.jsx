@@ -1,9 +1,21 @@
-import React from 'react'
+import {useState} from 'react'
 import home from "../assets/d.svg"
 import bg1 from "../assets/login-bg1.png"
 import bg2 from "../assets/login-bg2.png"
+import { useDispatch } from 'react-redux'
+import { actionFullLogin } from '../actions/actionFullLogin'
 
 function LoginPage() {
+    const dispatch = useDispatch()
+    const [userName, setUserName] = useState('')
+    const [psw, setPsw] = useState('')
+    const [email, setEmail] = useState('') 
+
+    const submit = async() => {
+        const response = await dispatch(actionFullLogin(userName, psw))
+        console.log(response)
+    }
+
   return (
     <div className='login'>
         <div className="container login__container">
@@ -17,15 +29,15 @@ function LoginPage() {
                 </p>
                 <div className="login__input-container">
                     <label htmlFor="username">Full name</label>
-                    <input className='d-input' type="text" id="username" />
+                    <input value={userName} onChange={(e) => setUserName(e.target.value)} className='d-input' type="text" id="username" />
                 </div>
-                <div className="login__input-container">
+                {/* <div className="login__input-container">
                     <label htmlFor="email">Email address</label>
                     <input className='d-input' type="email" id="email" />
-                </div>
+                </div> */}
                 <div className="login__input-container">
                     <label htmlFor="password">Password</label>
-                    <input className='d-input' type="password" id="password" />
+                    <input value={psw} onChange={(e) => setPsw(e.target.value)} className='d-input' type="password" id="password" />
                 </div>
                 <div className="login__input-checkbox">
                 <label className="control control-checkbox">
@@ -35,7 +47,7 @@ function LoginPage() {
                 </label>
                     <a href="#" className="login__recover">Forget Password?</a>
                 </div>
-                <button className="d-btn-secondary login__btn">Sign up</button>
+                <button onClick={submit} className="d-btn-secondary login__btn">Sign up</button>
                 <p className="login__copyright">Copyright © 2022 Delizioso</p>
             </div>
             <div className="login__img">

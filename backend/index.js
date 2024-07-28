@@ -7,6 +7,7 @@ const authMiddleware = require('./middleware/auth');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const allowedOrigins = ['http://localhost:5173'];
+const uri = 'mongodb+srv://storchak850:26266262@deliziosocluster.xn4bldc.mongodb.net/?retryWrites=true&w=majority&appName=deliziosoCluster'
 
 // Middleware
 app.use(cors({
@@ -30,7 +31,7 @@ app.get('/protected', authMiddleware, (req, res) => {
 });
 
 // Подключение к MongoDB
-mongoose.connect('mongodb://localhost:27017/delizioso', {
+mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {
