@@ -61,17 +61,17 @@ function SignupPage() {
                 </p>
                 <div className="signUp__input-container">
                     <label htmlFor="username">Full name</label>
-                    <input value={userName} onChange={e => setUserName(e.target.value)} className='d-input' type="text" id="username" />
+                    <input style={errors.userName ? {border: '1px solid red'} : {}} value={userName} onChange={e => setUserName(e.target.value)} className='d-input' type="text" id="username" />
                     {errors.userName && <p className="error-msg">{errors.userName}</p>}
                 </div>
                 <div className="signUp__input-container">
                     <label htmlFor="email">Email address</label>
-                    <input value={email} onChange={e => setEmail(e.target.value)} className='d-input' type="email" id="email" />
+                    <input style={errors.email ? {border: '1px solid red'} : {}} value={email} onChange={e => setEmail(e.target.value)} className='d-input' type="email" id="email" />
                     {errors.email && <p className="error-msg">{errors.email}</p>}
                 </div>
                 <div className="signUp__input-container">
                     <label htmlFor="password">Password</label>
-                    <input value={psw} onChange={e => setPsw(e.target.value)} className='d-input' type="password" id="password" />
+                    <input style={errors.psw ? {border: '1px solid red'} : {}} value={psw} onChange={e => setPsw(e.target.value)} className='d-input' type="password" id="password" />
                     {errors.psw && <p className="error-msg">{errors.psw}</p>}
                 </div>
                 <div className="signUp__input-checkbox">
@@ -82,7 +82,7 @@ function SignupPage() {
                 </label>
                     {/* <label htmlFor="terms">Remember me</label>
                     <input type="checkbox" id="terms" /> */}
-                    <a href="#" className="signUp__recover">Forget Password?</a>
+                    {/* <a href="#" className="signUp__recover">Forget Password?</a> */}
                 </div>
                 <button onClick={submit} className="d-btn-secondary signUp__btn">Sign up</button>
                 <p className="signUp__copyright">Copyright © 2022 Delizioso</p>
