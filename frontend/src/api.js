@@ -26,10 +26,15 @@ export const api = createApi({
                 // credentials: 'include',
             }),
         }),
+        allFood: builder.query({
+            query: () => 'food/all'
+        }),
     })
 
 })
 
-export const {useRegisterMutation,
+export const {
+    useRegisterMutation,
+    useAllFoodQuery,
 
 } = api
