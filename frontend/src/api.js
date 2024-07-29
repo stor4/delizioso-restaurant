@@ -29,6 +29,9 @@ export const api = createApi({
         allFood: builder.query({
             query: () => 'food/all'
         }),
+        getFoodByCategory: builder.query({
+            query: (query) => `food/category/${query}`
+        })
     })
 
 })
@@ -36,5 +39,6 @@ export const api = createApi({
 export const {
     useRegisterMutation,
     useAllFoodQuery,
+    useGetFoodByCategoryQuery,
 
 } = api

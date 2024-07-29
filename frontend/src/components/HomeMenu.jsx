@@ -43,8 +43,7 @@ function HomeMenu() {
                 </ul>
                 {isLoading && <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><img className='loader' src={loading} alt="loading" /></div>}
                 <div className="homeMenu__grid">
-                    {data.map((i) => <MenuCard title={i.title} desc={i.desc} price={i.price}/>)}
-
+                    {data?.map((i) => <MenuCard title={i.title} desc={i.desc} price={i.price}/>)}
                 </div>
                 
                 <div className="homeMenu__pagination">
