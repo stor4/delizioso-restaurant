@@ -3,21 +3,21 @@
         display: flex;
         position: relative;
         padding: 0px;
-
     }
 
     &__form {
         font-weight: 400;
-        font-size: 14px;
+        font-size: clamp(12px, 2vw, 14px);
         color: var(--text);
         min-width: 637px;
         padding: 154px 111px 0 111px;
         position: relative;
 
+
         h2 {
             font-family: var(--third-family);
             font-weight: 700;
-            font-size: 40px;
+            font-size: clamp(22px, 4vw, 40px);
             color: var(--text);
         }
     }
@@ -43,13 +43,17 @@
 
     &__already {
         font-weight: 400;
-        font-size: 14px;
+        font-size: clamp(12px, 2vw, 14px);
         line-height: 200%;
         color: var(--text);
         margin: 17px 0 50px;
 
         a {
             color: #0094ff;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 
@@ -84,7 +88,7 @@
 
     &__copyright {
         font-weight: 400;
-        font-size: 14px;
+        font-size: clamp(12px, 2vw, 14px);
         color: #c7bfb6;
         position: absolute;
         bottom: -257px;
@@ -231,5 +235,53 @@
     }
     .control-checkbox input:checked + .control_indicator::before {
         animation-name: s-ripple-dup;
+    }
+}
+
+@include big-tablet {
+    .signUp {
+    &__container {
+    background: black;
+    }
+
+    &__form {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    z-index: 3;
+    padding: clamp(100px, 12vw, 154px) clamp(78px, 12vw, 111px) clamp(50px, 12vw, 68px) clamp(78px, 12vw, 111px);
+    margin-top: 170px;
+    min-width: auto;
+    }
+
+    &__img {
+    // display: none;
+    position: relative;
+    max-height: none;
+
+    &::before {
+        content: '';
+        position: absolute;
+        background-color: black;
+        opacity: 0.4;
+        width: 100%;
+        height: 100%;
+    }
+    }
+
+    &__copyright {
+        position: relative;
+        bottom: auto;
+        left: 75%;
+        margin-top: 50px;
+    }
+
+    &__recover {
+        right: 0;
+        top: -27px;
+        font-size: 11px;
+    }
+
     }
 }

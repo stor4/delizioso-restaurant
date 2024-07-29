@@ -42,17 +42,16 @@ import authSlice from '../slices/authSlice';
 export const actionFullLogin = (username, password) =>
   async (dispatch)  => {
     try {
-      // Получение данных из API
       console.log(username, password)
       const response = await dispatch(api.endpoints.login.initiate({ username, password })).unwrap();
-      // Проверка и выполнение логина
+
       if (response?.username) {
         dispatch(authSlice.actions.login(response.username));
       }
       return response;
     } catch (error) {
-      // Обработка ошибок
+
       console.error('Login failed:', error);
-      throw error; // Переброс ошибки в компонент для дальнейшей обработки
+      throw error;
     }
   }

@@ -9,11 +9,43 @@ function SignupPage() {
     const dispatch = useDispatch()
     const [userName, setUserName] = useState('')
     const [psw, setPsw] = useState('')
-    const [email, setEmail] = useState('') 
+    const [email, setEmail] = useState('')
+    const [errors, setErrors] = useState({})
+    
+    const validate = () => {
+        const newErrors = {};
+        if (!userName.length > 3) {
+            newErrors.userName = 'Name length must be longer than 3 symbols'
+        } else if (!userName) {
+            newErrors.userName = 'Full name is required' 
+        } else if (!/^[a-zA-Z]+$/.test(userName)) {
+            newErrors.userName = 'Full name must contain only English letters'
+        }
 
-    const submit = async() => {
-        const response = await dispatch(actionFullSignUp(userName, psw, email))
-        console.log(response)
+        if (!email) {
+            newErrors.email = 'Email address is required'
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            newErrors.email = 'Email address is invalid'
+        }
+        
+        if (!psw) {
+            newErrors.psw = 'Password is required' 
+        } else if (psw.length < 6) {
+            newErrors.psw = 'Password must be at least 6 characters'
+        } else if (!/^[a-zA-Z]+$/.test(psw)) {
+            newErrors.psw = 'Password must contain only English letters'
+        }
+        return newErrors;
+    }
+
+    const submit = async () => {
+        const newErrors = validate();
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors)
+        } else {
+            const response = await dispatch(actionFullSignUp(userName, psw, email))
+            console.log(response)
+        }
     }
 
     return (
@@ -30,14 +62,17 @@ function SignupPage() {
                 <div className="signUp__input-container">
                     <label htmlFor="username">Full name</label>
                     <input value={userName} onChange={e => setUserName(e.target.value)} className='d-input' type="text" id="username" />
+                    {errors.userName && <p className="error-msg">{errors.userName}</p>}
                 </div>
                 <div className="signUp__input-container">
                     <label htmlFor="email">Email address</label>
                     <input value={email} onChange={e => setEmail(e.target.value)} className='d-input' type="email" id="email" />
+                    {errors.email && <p className="error-msg">{errors.email}</p>}
                 </div>
                 <div className="signUp__input-container">
                     <label htmlFor="password">Password</label>
                     <input value={psw} onChange={e => setPsw(e.target.value)} className='d-input' type="password" id="password" />
+                    {errors.psw && <p className="error-msg">{errors.psw}</p>}
                 </div>
                 <div className="signUp__input-checkbox">
                 <label className="control control-checkbox">
@@ -45,7 +80,6 @@ function SignupPage() {
                     <input type="checkbox"  />
                     <div className="control_indicator"></div>
                 </label>
-
                     {/* <label htmlFor="terms">Remember me</label>
                     <input type="checkbox" id="terms" /> */}
                     <a href="#" className="signUp__recover">Forget Password?</a>
@@ -55,12 +89,12 @@ function SignupPage() {
             </div>
             <div className="signUp__img">
                
-                {Math.random() > 0.5 ? 
-                 <img src={bg1} alt="image" /> :
-                 <div className="signUp__bg2">
+                {/* {Math.random() > 0.5 ?  */}
+                 <img src={bg1} alt="image" /> 
+                 {/* <div className="signUp__bg2">
                     <img src={bg2} alt="image" />
-                 </div>
-                }
+                 </div> */}
+                {/* } */}
             </div>
         </div>
     </div>
