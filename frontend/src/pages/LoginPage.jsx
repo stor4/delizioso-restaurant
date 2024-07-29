@@ -4,12 +4,14 @@ import bg1 from "../assets/login-bg1.png"
 import bg2 from "../assets/login-bg2.png"
 import { useDispatch } from 'react-redux'
 import { actionFullLogin } from '../actions/actionFullLogin'
+import { useNavigate } from 'react-router-dom'
 
 function LoginPage() {
     const dispatch = useDispatch()
     const [userName, setUserName] = useState('')
     const [psw, setPsw] = useState('')
     const [errors, setErrors] = useState({})
+    const navigate = useNavigate()
 
     const validate = () => {
         const newErrors = {};
@@ -36,8 +38,10 @@ function LoginPage() {
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors)
         } else {
-            const response = await dispatch(actionFullДщпшт(userName, psw))
-            console.log(response)
+            const response = await dispatch(actionFullLogin(userName, psw))
+            if (response.token) {
+                navigate('/');
+            }
         }
     }
 

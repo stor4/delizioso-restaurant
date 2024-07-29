@@ -4,6 +4,7 @@ import bg1 from "../assets/login-bg1.png"
 import bg2 from "../assets/login-bg2.png"
 import { useDispatch } from 'react-redux'
 import actionFullSignUp from '../actions/actionFullSignUp'
+import { useNavigate } from 'react-router-dom'
 
 function SignupPage() {
     const dispatch = useDispatch()
@@ -11,6 +12,7 @@ function SignupPage() {
     const [psw, setPsw] = useState('')
     const [email, setEmail] = useState('')
     const [errors, setErrors] = useState({})
+    const navigate = useNavigate()
     
     const validate = () => {
         const newErrors = {};
@@ -44,7 +46,9 @@ function SignupPage() {
             setErrors(newErrors)
         } else {
             const response = await dispatch(actionFullSignUp(userName, psw, email))
-            console.log(response)
+            if (response.token) {
+                navigate('/');
+            }
         }
     }
 
