@@ -18,8 +18,6 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-// Hash password before saving
-
 // Compare password
 UserSchema.methods.comparePassword = async function (password) {
     return await bcrypt.compare(password, this.password);
