@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-const serverURL = 'http://localhost:5000'
+const serverURL = 'http://localhost:5001'
 
 export const api = createApi({
     reducerPath: 'api',
@@ -27,7 +27,7 @@ export const api = createApi({
             }),
         }),
         allFood: builder.query({
-            query: () => 'food/all'
+            query: ({page, limit, category }) => `food/all?page=${page}&limit=${limit}&category=${category}`
         }),
         getFoodByCategory: builder.query({
             query: (query) => `food/category/${query}`
