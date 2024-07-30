@@ -5,7 +5,7 @@ const authRoutes = require('./routes/auth');
 const authMiddleware = require('./middleware/auth');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 const allowedOrigins = ['http://localhost:5173'];
 const uri = 'mongodb+srv://storchak850:26266262@deliziosocluster.xn4bldc.mongodb.net/?retryWrites=true&w=majority&appName=deliziosoCluster'
 
