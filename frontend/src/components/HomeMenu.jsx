@@ -8,7 +8,7 @@ import loading from "../assets/loading.jpg"
 function HomeMenu() {
     const [activeCategory, setActiveCategory] = useState('All category');
     const [page, setPage] = useState(1)
-    const [limit, setLimit] = useState(6)
+    const limit = 6
     const { data, error, isLoading } = useAllFoodQuery({
         page, 
         limit, 
@@ -52,23 +52,35 @@ function HomeMenu() {
                 </ul>
                 {isLoading && <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><img className='loader' src={loading} alt="loading" /></div>}
                 <div className="homeMenu__grid">
-                    {data?.foods.map((i, key) => <MenuCard key={key} title={i.title} desc={i.desc} price={i.price}/>)}
+                    {data?.foods.map((i, key) => <MenuCard key={key} title={i.title} desc={i.description} price={i.price}/>)}
                 </div>
-                
-                <div className="homeMenu__pagination">
-                    <button disabled={page === 1} onClick={() => handlePageChange(page - 1)} className="homeMenu__pagination-back">
-                        <img src={arrow} alt="back" />
-                    </button>
-                    <ul>
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                        <li><img src={etc} alt="more" /></li>
-                    </ul>
-                    <button disabled={page === data?.totalPages} onClick={() => handlePageChange(page + 1)} className="homeMenu__pagination-next" >
-                        <img src={arrow} alt="next"/>
-                    </button>
-                </div>
+                {data?.totalPages < 1 && (
+                    <div className="homeMenu__pagination">
+                        <button disabled={page === 1} onClick={() => handlePageChange(page - 1)} className="homeMenu__pagination-back">
+                            <img src={arrow} alt="back" />
+                        </button>
+                        <ul>
+                                {/* {data?.totalPages > 1 && (
+                                    Array.from({ length: data.totalPages }, (_, index) => (
+                                        <li
+                                            key={index + 1}
+                                            className={index + 1 === page ? 'active' : ''}
+                                            onClick={() => handlePageChange(index + 1)}
+                                        >
+                                            {index + 1}
+                                        </li>
+                                    ))
+                                )} */}
+                                {data?.totalPages > 4 && (
+                                    <li><img src={etc} alt="more" /></li>
+                                )}
+                            </ul>
+                        <button disabled={page === data?.totalPages} onClick={() => handlePageChange(page + 1)} className="homeMenu__pagination-next" >
+                            <img src={arrow} alt="next"/>
+                        </button>
+                    </div>
+                )}
+
             </div>
         </div>
     </div>
