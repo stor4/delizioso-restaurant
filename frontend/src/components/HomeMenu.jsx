@@ -1,16 +1,24 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import MenuCard from './MenuCard'
 import arrow from '../assets/arrow_back.svg'
 import etc from '../assets/etc.svg'
+import { useAllFoodQuery } from '../api';
+import loading from "../assets/loading.jpg"
 
 function HomeMenu() {
     const [activeCategory, setActiveCategory] = useState('All category');
+    const {data, error, isLoading} = useAllFoodQuery()
 
     const categories = ['All category', 'Dinner', 'Lunch', 'Dessert', 'Drink'];
   
     const handleCategoryClick = (category) => {
       setActiveCategory(category);
     };
+
+    useEffect(() => {
+        console.log(data)
+
+    }, [data])
 
   return (
     <div className='homeMenu'>
@@ -33,14 +41,11 @@ function HomeMenu() {
                         </li>
                     ))}
                 </ul>
+                {isLoading && <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><img className='loader' src={loading} alt="loading" /></div>}
                 <div className="homeMenu__grid">
-                    <MenuCard/>
-                    <MenuCard/>
-                    <MenuCard/>
-                    <MenuCard/>
-                    <MenuCard/>
-                    <MenuCard/>
+                    {data?.map((i) => <MenuCard title={i.title} desc={i.desc} price={i.price}/>)}
                 </div>
+                
                 <div className="homeMenu__pagination">
                     <span className="homeMenu__pagination-back">
                         <img src={arrow} alt="back" />

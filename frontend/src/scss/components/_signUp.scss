@@ -91,7 +91,7 @@
         font-size: clamp(12px, 2vw, 14px);
         color: #c7bfb6;
         position: absolute;
-        bottom: -257px;
+        bottom: 0;
         left: 50%;
         transform: translateX(-50%);
     }
@@ -251,14 +251,24 @@
     background: var(--white);
     z-index: 3;
     padding: clamp(100px, 12vw, 154px) clamp(78px, 12vw, 111px) clamp(50px, 12vw, 68px) clamp(78px, 12vw, 111px);
-    margin-top: 170px;
+    margin-top: clamp(0px, 4vw, 170px);
     min-width: auto;
+    box-shadow: 0px 9px 5px 0px rgba(0,0,0,0.75);
+
+    h2 {
+        text-align: center;
+    }
+    }
+
+    &__already {
+        text-align: center;
     }
 
     &__img {
     // display: none;
     position: relative;
     max-height: none;
+    scale: 1.7;
 
     &::before {
         content: '';
@@ -271,9 +281,9 @@
     }
 
     &__copyright {
-        position: relative;
-        bottom: auto;
-        left: 75%;
+        position: static;
+        text-align: center;
+        transform: translateX(0);
         margin-top: 50px;
     }
 
@@ -283,5 +293,18 @@
         font-size: 11px;
     }
 
+    }
+}
+
+@include mobile {
+    .signUp {
+        &__img {
+            display: none;
+        }
+
+        &__form {
+            margin-top: 0;
+            width: 100%;
+        }
     }
 }

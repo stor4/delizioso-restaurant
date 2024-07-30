@@ -18,6 +18,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '../api';
 import authSlice from '../slices/authSlice';
+import { store } from '../store';
 
 // export const actionFullLogin = createAsyncThunk(
 //   'auth/login',
@@ -42,13 +43,16 @@ import authSlice from '../slices/authSlice';
 export const actionFullLogin = (username, password) =>
   async (dispatch)  => {
     try {
-      console.log(username, password)
+      // console.log(username, password)
       const response = await dispatch(api.endpoints.login.initiate({ username, password })).unwrap();
 
       if (response?.username) {
-        dispatch(authSlice.actions.login(response.username));
+        console.log(response)
+        dispatch(authSlice.actions.login(response));
+        console.log(store.getState())
       }
       return response;
+      
     } catch (error) {
 
       console.error('Login failed:', error);

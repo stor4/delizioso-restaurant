@@ -13,14 +13,13 @@ const authSlice = createSlice({
     name: 'auth',
     initialState: {token: null, payload: null},
     reducers: {
-        login(state, {payload: token}){
-            console.log('LOGIN', state, token)
-           // console.log(token)
-            //const payload = jwtDecode(token)
-            //if (payload) {
-                state.payload = token
-                state.token = token
-           // }
+        login(state, {payload}){
+            console.log('LOGIN', state, payload)
+            const decoded = jwtDecode(payload.token)
+            if (decoded) {
+                state.payload = payload
+                state.token = payload.token
+           }
         },
         logout(state){
             state.payload = null
