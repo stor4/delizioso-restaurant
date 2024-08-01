@@ -89,6 +89,33 @@
         color: #a0978c;
         position: relative;
 
+        input {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            padding: 39px 50px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-size: clamp(12px, 3vw, 20px);
+            color: #a0978c;
+
+            &::placeholder {
+                color: #a0978c;
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                background: #d0ccc7;
+                opacity: 0.1;
+                height: 100%;
+                width: 100%;
+                right: 0;
+                top: 0;
+            }
+        }
+
 
         &-item {
             position: relative;
@@ -98,6 +125,7 @@
             display: flex;
             align-items: center;
             width: 100%;
+            z-index: 5;
 
             &::before {
                 content: '';

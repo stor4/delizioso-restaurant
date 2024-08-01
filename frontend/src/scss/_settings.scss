@@ -176,6 +176,16 @@ a {
         background: transparent;
         color: var(--green);
     }
+
+    &:disabled {
+      background: grey;
+      border: grey 1px solid;
+  
+      &:hover {
+        color: var(--white); 
+        background: grey;
+      };
+    }
 }
 
 .d-btn-secondary {
@@ -195,6 +205,16 @@ a {
   &:hover {
       background: transparent;
       color: var(--primary);
+  }
+
+  &:disabled {
+    background: grey;
+    border: grey 1px solid;
+
+    &:hover {
+      color: var(--white); 
+      background: grey;
+    };
   }
 }
 
