@@ -31,6 +31,19 @@ export const api = createApi({
         }),
         getFoodByCategory: builder.query({
             query: (query) => `food/category/${query}`
+        }),
+        getReservationDates: builder.query({
+            query: () => `reservations/available-dates`
+        }),
+        getReservationTime: builder.query({
+            query: (date) => `reservations/available-slots?date=${date}`
+        }),
+        postReservation: builder.mutation({
+            query: ({date, time, people, customerName, customerPhone}) => ({
+                url: `reservations/reserve`,
+                method: 'POST',
+                body: {date, time, people, customerName, customerPhone}
+            })
         })
     })
 
@@ -40,5 +53,8 @@ export const {
     useRegisterMutation,
     useAllFoodQuery,
     useGetFoodByCategoryQuery,
+    usePostReservationMutation,
+    useGetReservationDatesQuery,
+    useGetReservationTimeQuery,
 
 } = api

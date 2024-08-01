@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors'); 
 const authRoutes = require('./routes/auth');
 const foodRoutes = require('./routes/food');
+const reservationRoutes = require('./routes/reservations');
 const authMiddleware = require('./middleware/auth');
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(express.json());
 // Routes
 app.use('/auth', authRoutes);
 app.use('/food', foodRoutes);
+app.use('/reservations', reservationRoutes);
 
 // Пример защищенного маршрута
 app.get('/protected', authMiddleware, (req, res) => {
