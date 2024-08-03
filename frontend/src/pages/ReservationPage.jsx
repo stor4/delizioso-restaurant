@@ -1,4 +1,5 @@
 import img from '../assets/reservation.svg'
+import emoji from '../assets/emoji.png'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { useState, useRef, useEffect } from 'react'
@@ -62,15 +63,16 @@ function ReservationPage() {
 
         try {
             const result = await postReservation({
-                inputDate,
-                inputTime,
-                inputPeople,
-                inputNumber,
-                inputName
+                date: inputDate,
+                time: inputTime,
+                people: inputPeople,
+                customerPhone: inputNumber,
+                customerName: inputName
 
             }).unwrap()
 
             console.log('Reservation successful:', result);
+            setIsReserved(true)
         } catch (err) {
             console.error('Failed to make a reservation:', err);
         }
@@ -130,7 +132,7 @@ function ReservationPage() {
                         </ul>
                     </div>
                     <div className="reservation__dropdown">
-                        <input value={inputNumber} onChange={(e) => setInputNumber(e.target.value)} placeholder='Phone number' type="text" className="d-input" />
+                        <input value={inputNumber} maxLength={10} onChange={(e) => setInputNumber(e.target.value.replace(/\D/g, ''))} pattern="\d*" placeholder='Phone number' inputMode='numeric' type="text" className="d-input" />
                     </div>
                     <div className="reservation__dropdown">
                         <input value={inputName} onChange={(e) => setInputName(e.target.value)} placeholder='Name (optional)' type="text" className="d-input" />
@@ -138,6 +140,25 @@ function ReservationPage() {
                 </div>
                 <button disabled={disabled}  onClick={(e) => submit(e)} className='d-btn-secondary'>Book now</button>
             </div> 
+        </div>
+        <div style={{display: isReserved ? 'block' : ''}} className="reservation__success">
+            <div className="reservation__success-bg"></div>
+            <div className="reservation__success-msg">
+                <img src={emoji} alt="success" />
+                <p>Your table successfuly reserved!</p>
+                {reservationData && (
+                    <>
+                    <p>Date: {new Date(reservationData.date).toLocaleDateString("ru-RU")}</p>
+                    <p>Time: {reservationData.time}</p>
+                    <p>Name: {reservationData.customerName}</p>
+                    <p>Phone number: {reservationData.customerPhone}</p>
+                    <p>People: {reservationData.people}</p>
+                    </>
+                )
+                }
+                <button className='d-btn-primary'>Back to home page</button>
+            </div>
+
         </div>
     </main>
     <Footer/>

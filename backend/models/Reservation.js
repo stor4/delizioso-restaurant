@@ -10,7 +10,7 @@ const ReservationSchema = new mongoose.Schema({
     required: true,
   },
   people: {
-    type: Number,
+    type: String,
     required: true,
   },
   customerName: {

@@ -188,6 +188,57 @@
             }
         }
     }
+
+    &__success {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        z-index: 20;
+        display: none;
+
+        &-bg {
+            background: #000;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.4;
+            z-index: 21;
+            
+        }
+
+        &-msg {
+            background: #fff;
+            max-height: 450px;
+            height: 100%;
+            max-width: 450px;
+            width: 100%;
+            z-index: 22;
+            position: absolute;
+            top: 300px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 22px;
+            color: var(--text);
+            border-radius: 20px;
+
+            img {
+                height: 70px;
+                width: 70px;
+            }
+
+            button {
+                margin-top: 15px;
+            }
+        }
+    }
 }
 
 @include big-tablet {
