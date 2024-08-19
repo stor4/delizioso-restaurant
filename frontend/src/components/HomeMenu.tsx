@@ -5,6 +5,12 @@ import etc from '../assets/etc.svg'
 import { useAllFoodQuery, useGetFoodByCategoryQuery } from '../api';
 import loading from "../assets/loading.jpg"
 
+interface FoodItem {
+    title: string,
+    description: string,
+    price: string
+}
+
 function HomeMenu() {
     const [activeCategory, setActiveCategory] = useState('All category');
     const [page, setPage] = useState(1)
@@ -18,12 +24,12 @@ function HomeMenu() {
 
     const categories = ['All category', 'Salad', 'Seafood', 'Antipasti', 'Pasta', 'Pizza', 'Dessert', 'Drinks'];
   
-    const handleCategoryClick = (category) => {
+    const handleCategoryClick = (category: string) => {
         setActiveCategory(category);
         setPage(1); 
     };
 
-    const handlePageChange = (newPage) => {
+    const handlePageChange = (newPage: number) => {
         if (newPage >= 1 && newPage <= data?.totalPages) {
             setPage(newPage);
         }
@@ -52,7 +58,7 @@ function HomeMenu() {
                 </ul>
                 {isLoading && <div style={{width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center'}}><img className='loader' src={loading} alt="loading" /></div>}
                 <div className="homeMenu__grid">
-                    {data?.foods.map((i, key) => <MenuCard key={key} title={i.title} desc={i.description} price={i.price}/>)}
+                    {data?.foods.map((i:FoodItem, key: number) => <MenuCard key={key} title={i.title} desc={i.description} price={i.price}/>)}
                 </div>
                 {data?.totalPages < 1 && (
                     <div className="homeMenu__pagination">

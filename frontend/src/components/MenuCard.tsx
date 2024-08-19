@@ -3,12 +3,22 @@ import cardImg from "../assets/card1.png"
 import btn from "../assets/card_btn.svg"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { RootState } from '../types/state'
+import { useEffect } from "react"
 
-function MenuCard({title='Spaghetti', img=cardImg, rate, price='12.05', desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.'}) {
-  const auth = useSelector(state => state.auth)
+interface MenuCardProps {
+  title: string;
+  img?:  string;
+  rate?: number;
+  price?: string;
+  desc?: string;
+}
+
+function MenuCard({title='Spaghetti', img=cardImg, rate=0, price='12.05', desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam.'}: MenuCardProps) {
+  const auth = useSelector((state: RootState) => state.auth)
   const navigate = useNavigate()
 
-  useSelector(() => {
+  useEffect(() => {
     if (auth.token) {
       console.log(auth)
     }

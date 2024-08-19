@@ -6,16 +6,21 @@ import { useDispatch } from 'react-redux'
 import { actionFullLogin } from '../actions/actionFullLogin'
 import { useNavigate } from 'react-router-dom'
 
+interface ErrorsInterface {
+    userName: string;
+    psw: string;
+}
+
 function LoginPage() {
     const dispatch = useDispatch()
     const [userName, setUserName] = useState('')
     const [psw, setPsw] = useState('')
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState<Partial<ErrorsInterface>>({})
     const navigate = useNavigate()
 
     const validate = () => {
-        const newErrors = {};
-        if (!userName.length > 3) {
+        const newErrors: Partial<ErrorsInterface> = {};
+        if (userName.length < 3) {
             newErrors.userName = 'Name length must be longer than 3 symbols'
         } else if (!userName) {
             newErrors.userName = 'Full name is required' 
@@ -38,7 +43,7 @@ function LoginPage() {
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors)
         } else {
-            const response = await dispatch(actionFullLogin(userName, psw))
+            const response = await dispatch(actionFullLogin(userName, psw) as any)
             if (response.token) {
                 navigate('/');
             }

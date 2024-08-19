@@ -63,7 +63,7 @@ function Footer() {
                 <p className="footer__col-title">Get in touch</p>
                     <ul>
                         <li>
-                            <address href="#">3247 Johnson Ave, Bronx, NY<br/> 10463, Amerika Serikat</address>
+                            <address>3247 Johnson Ave, Bronx, NY<br/> 10463, Amerika Serikat</address>
                         </li>
                         <li>
                             <a href="#">delizioso@gmail.com</a>
