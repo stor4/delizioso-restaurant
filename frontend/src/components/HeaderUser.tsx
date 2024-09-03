@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, TypedUseSelectorHook } from 'react-redux'
 import actionLogout from '../actions/actionLogout'
+import { RootState } from '../types/state'
+import { AuthState } from '../types'
 
 function HeaderUser() {
-  const authState = useSelector((state) => state.auth)
+  const authState = useSelector((state:RootState) => state.auth)
 
   useEffect(() => {
     console.log(authState)
-
   }, [authState])
 
   const logout = () => {

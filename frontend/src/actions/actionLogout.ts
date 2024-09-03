@@ -1,7 +1,8 @@
 import authSlice from "../slices/authSlice"
+import { AppDispatch } from "../store"
 
 const actionLogout = () =>
-    async dispatch => {
+    async (dispatch:AppDispatch) => {
         dispatch(authSlice.actions.logout())
     }
 

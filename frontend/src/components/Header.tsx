@@ -1,4 +1,3 @@
-import React from 'react'
 import logo from '../assets/logo.svg'
 import HeaderCart from './HeaderCart'
 import HeaderUser from './HeaderUser'
