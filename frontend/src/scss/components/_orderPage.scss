@@ -1,0 +1,90 @@
+.order {
+    &__container {
+        h1 {
+            font-family: var(--second-family);
+            font-weight: 700;
+            font-size: 80px;
+            color: var(--text);
+            text-align: center;
+        }
+
+    }
+
+    &__cats {
+
+    }
+
+    &__menu {
+        display: flex;
+        margin-top: 100px;
+
+    }
+
+    &__list {
+        width: 100%;
+
+    }
+
+    &__group {
+        position: relative;
+        padding: 70px 0;
+
+        &-title {
+            font-weight: 600;
+            font-size: 30px;
+            color: #000;
+            position: relative;
+            width: 120px;
+            text-transform: uppercase;
+            margin-bottom: 62px;
+
+            &::before {
+                content: '';
+                height: 3px;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                background: var(--primary);
+
+            }
+
+        }
+
+        &-items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+    }
+
+    &__cart {
+        max-width: 343px;
+        width: 100%;
+
+        &-title {
+            border-radius: 20px;
+            background: #512982;
+            color: #fff;
+            font-weight: 600;
+            font-size: 30px;
+            padding: 27px 82px;
+        }
+
+        &-list {
+
+        }
+
+        &-voucher {
+
+        }
+
+        &-sum {
+
+        }
+
+        &-submit {
+
+
+        }
+    }
+}
