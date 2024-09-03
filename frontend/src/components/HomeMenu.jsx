@@ -54,7 +54,7 @@ function HomeMenu() {
                 <div className="homeMenu__grid">
                     {data?.foods.map((i, key) => <MenuCard key={key} title={i.title} desc={i.description} price={i.price}/>)}
                 </div>
-                {data?.totalPages < 1 && (
+                {data?.totalPages > 1 && (
                     <div className="homeMenu__pagination">
                         <button disabled={page === 1} onClick={() => handlePageChange(page - 1)} className="homeMenu__pagination-back">
                             <img src={arrow} alt="back" />

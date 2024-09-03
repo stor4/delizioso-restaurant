@@ -32,8 +32,8 @@ function MenuCard({title='Spaghetti', img=cardImg, rate, price='12.05', desc='Lo
         </p>
         <div className="menuCard__bottom">
             <p className="menuCard__price">${price}</p>
-            <button onClick={() => !auth.token ? navigate('/login') : ''} className="d-btn-secondary menuCard__btn">Order now</button>
-            <button onClick={() => !auth.token ? navigate('/login') : ''}  className="menuCard__btn-mob">
+            <button className="d-btn-secondary menuCard__btn">Order now</button>
+            <button className="menuCard__btn-mob">
               <img src={btn} alt="add" />
             </button>
         </div>

@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { useState, useRef, useEffect } from 'react'
 import { useGetReservationDatesQuery, useGetReservationTimeQuery, usePostReservationMutation } from '../api'
+import { useNavigate } from 'react-router-dom'
 
 function ReservationPage() {
     const [datesOpen, setDatesOpen] = useState(false)
@@ -16,6 +17,8 @@ function ReservationPage() {
     const [inputName, setInputName] = useState('')
     const [inputNumber, setInputNumber] = useState('')
     const [isReserved, setIsReserved] = useState(false)
+
+    const navigate = useNavigate()
 
     const {data: dates, error: datesError, isLoading: datesLoading} = useGetReservationDatesQuery()
     const {data: times, error, timesError, isLoading: timesLoading} = useGetReservationTimeQuery(inputDate === 'Date' ? '' : inputDate)
@@ -156,9 +159,8 @@ function ReservationPage() {
                     </>
                 )
                 }
-                <button className='d-btn-primary'>Back to home page</button>
+                <button onClick={() => navigate('/')} className='d-btn-primary'>Back to home page</button>
             </div>
-
         </div>
     </main>
     <Footer/>
